@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "openIn1S",
+  "version": "1.0.0",
+  "description": "简单的Chrome扩展demo",
+  "icons": {
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
+  },
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_title": "这是一个示例Chrome插件"
+  },
+  "content_scripts": [{
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["js/index.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "web_accessible_resources": [],
+  "homepage_url": "https://www.baidu.com",
+  "omnibox": {
+    "keyword": "go"
+  }
+}
