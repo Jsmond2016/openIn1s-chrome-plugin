@@ -1,22 +1,23 @@
 console.log('content.js');
 
-const keyWords = ["前端面试", "面试", "面经", "算法"]
+const keyWords = ["前端面试", "面试", "面经", "算法", "跳槽"]
+setMaskPage();
 
-chrome.storage.sync.get('mask', function (result) {
-  if (result.mask) {
-    maskKeyWords();
-  }
-});
+// 为啥没有监听到 路由变化？
+// window.addEventListener('locationchange', function () {
+//   console.log('locationchange: ');
+//   setMaskPage();
+// })
+// window.onhashchange = function () {
+//   console.log('onhashchange: ');
+//   setMaskPage();
+// }
+registerHistoryListener();
+
 
 function maskKeyWords() {
-  // 此方法不可取，切断了 dom 和 事件关系
-  // const bodyHtml = document.body.innerHTML;
-  // console.log('bodyHtml: ', bodyHtml);
-  // const htmlStr = keyWords.reduce((pre, cur) => pre.replaceAll(cur, "*".repeat((cur || "").length)), bodyHtml); 
-  // document.body.innerHTML = htmlStr; 
-  console.log('maskKeyWords');
   for (let value of keyWords) {
-    const reg = new RegExp(`${value}`, 'g')
+    const reg = new RegExp(value, "g")
     replaceInText(document.body, reg, "*".repeat((value || "").length))
   }
 }
@@ -26,18 +27,47 @@ function maskKeyWords() {
 //  https://stackoverflow.com/a/50537862/14366000
 //  备选方案：https://github.com/padolsey/findAndReplaceDOMText
 function replaceInText(element, pattern, replacement) {
-  console.log('excute');
   for (let node of element.childNodes) {
-      switch (node.nodeType) {
-          case Node.ELEMENT_NODE:
-              replaceInText(node, pattern, replacement);
-              break;
-          case Node.TEXT_NODE:
-              node.textContent = node.textContent.replace(pattern, replacement);
-              console.log('node.textContent: ', node.textContent);
-              break;
-          case Node.DOCUMENT_NODE:
-              replaceInText(node, pattern, replacement);
-      }
+    switch (node.nodeType) {
+      case Node.ELEMENT_NODE:
+        replaceInText(node, pattern, replacement);
+        break;
+      case Node.TEXT_NODE:
+        node.textContent = node.textContent.replace(pattern, replacement);
+        break;
+      case Node.DOCUMENT_NODE:
+        replaceInText(node, pattern, replacement);
+    }
   }
 }
+
+function setMaskPage() {
+  chrome.storage.sync.get('mask', function (result) {
+    if (result.mask) {
+      console.log("mask-plugin-excute ");
+      maskKeyWords();
+    }
+  });
+}
+
+
+function registerHistoryListener() {
+  history.pushState = (f => function pushState() {
+    var ret = f.apply(this, arguments);
+    window.dispatchEvent(new Event('pushstate'));
+    window.dispatchEvent(new Event('locationchange'));
+    return ret;
+  })(history.pushState);
+
+  history.replaceState = (f => function replaceState() {
+    var ret = f.apply(this, arguments);
+    window.dispatchEvent(new Event('replacestate'));
+    window.dispatchEvent(new Event('locationchange'));
+    return ret;
+  })(history.replaceState);
+
+  window.addEventListener('popstate', () => {
+    window.dispatchEvent(new Event('locationchange'))
+  });
+}
+
