@@ -1,19 +1,12 @@
+"use strict"
+
 console.log('content.js');
 
 const keyWords = ["前端面试", "面试", "面经", "算法", "跳槽"]
 setMaskPage();
 
 // 为啥没有监听到 路由变化？
-// window.addEventListener('locationchange', function () {
-//   console.log('locationchange: ');
-//   setMaskPage();
-// })
-// window.onhashchange = function () {
-//   console.log('onhashchange: ');
-//   setMaskPage();
-// }
 registerHistoryListener();
-
 
 function maskKeyWords() {
   for (let value of keyWords) {
@@ -51,6 +44,8 @@ function setMaskPage() {
 }
 
 
+
+
 function registerHistoryListener() {
   history.pushState = (f => function pushState() {
     var ret = f.apply(this, arguments);
@@ -58,16 +53,19 @@ function registerHistoryListener() {
     window.dispatchEvent(new Event('locationchange'));
     return ret;
   })(history.pushState);
-
+  
   history.replaceState = (f => function replaceState() {
     var ret = f.apply(this, arguments);
     window.dispatchEvent(new Event('replacestate'));
     window.dispatchEvent(new Event('locationchange'));
     return ret;
   })(history.replaceState);
-
+  
   window.addEventListener('popstate', () => {
     window.dispatchEvent(new Event('locationchange'))
   });
+  window.addEventListener('locationchange', function () {
+    console.log('locationchange: ');
+    setMaskPage();
+  })
 }
-
