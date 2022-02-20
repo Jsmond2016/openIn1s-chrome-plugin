@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="lang">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ui 框架来源于 https://www.zhangxinxu.com/sp/lulu/mockup/ -->
+  <link rel="stylesheet" href="https://qidian.gtimg.com/lulu/edge/css/common/ui/Checkbox.css">
+  <link rel="stylesheet" href="https://qidian.gtimg.com/lulu/edge/css/common/ui/Switch.css">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .wrapper {
+      width: 200px;
+      font-size: 16px;
+      padding: 10px 0;
+    }
+    .line-label {
+      width: 146px;
+    }
+    input[type="checkbox"] {
+      transform: scale(0.8);
+    } 
+    .mode-line {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      padding: 4px 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="mode-line">
+      <span class="line-label">开启 github1s：</span><input type="checkbox" id="switch-github1s" is="ui-switch">
+    </div>
+    <hr />
+    <div class="mode-line">
+      <span class="line-label">开启屏蔽关键词：</span><input type="checkbox" id="switch-mask" is="ui-switch">
+    </div>
+    <hr />
+    <div class="mode-line">
+      <span class="line-label">开启其他模式：</span><input type="checkbox" id="switch" is="ui-switch">
+    </div>
+    <hr />
+    <div class="mode-line">
+      <span class="line-label">开启其他模式：</span><input type="checkbox" id="switch" is="ui-switch">
+    </div>
+    <hr />
+    <div class="mode-line">
+      <span class="line-label">模式配置</span>
+    </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
