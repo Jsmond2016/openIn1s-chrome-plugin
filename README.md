@@ -18,3 +18,4 @@
 
 - https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html
 - https://open.chrome.360.cn/extension_dev/content_scripts.html
+- https://github.com/facert/chrome-extension-guide 
