@@ -13,6 +13,13 @@
     "default_title": "Jsmond2016配置",
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "run_at": "document_end",
+      "js": ["content.js"]
+    }
+  ],
   "options_page": "options.html",
   "permissions": [
     "contextMenus",

@@ -12,3 +12,9 @@
 - 添加拓展程序压缩包，选择本仓库即可
 
 说明：只有在进入 github 或者 github1s 网站时才显示
+
+
+## 相关资料：
+
+- https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html
+- https://open.chrome.360.cn/extension_dev/content_scripts.html
