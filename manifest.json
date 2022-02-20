@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "openIn1S",
+  "name": "Jsmond2016配置",
   "version": "1.0.0",
-  "description": "在github1s打开本仓库",
+  "description": "Jsmond2016配置",
   "icons": {
     "16": "img/icon.png",
     "48": "img/icon.png",
@@ -10,14 +10,10 @@
   },
   "browser_action": {
     "default_icon": "img/icon.png",
-    "default_title": "openIn1S"
+    "default_title": "Jsmond2016配置",
+    "default_popup": "popup.html"
   },
-  "content_scripts": [{
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["js/index.js"],
-      "run_at": "document_end"
-    }
-  ],
+  "options_page": "options.html",
   "permissions": [
     "contextMenus",
     "tabs",
