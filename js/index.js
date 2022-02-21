@@ -33,6 +33,14 @@ function registerEventLisntener() {
       })
     }
   }
+  const $config = document.getElementById("mode-config");
+  $config.onclick = function() {
+    chrome.tabs.create(
+      {
+        url: chrome.extension.getURL('options.html'),
+      }
+    );
+  }
 }
 
 

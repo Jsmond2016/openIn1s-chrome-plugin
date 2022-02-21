@@ -30,6 +30,10 @@
       align-items: center;
       padding: 4px 8px;
     }
+    .mode-line:hover {
+      background-color: #f1f3f4;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -51,7 +55,7 @@
       <span class="line-label">开启其他模式：</span><input type="checkbox" id="switch" is="ui-switch">
     </div>
     <hr />
-    <div class="mode-line">
+    <div class="mode-line" id="mode-config">
       <span class="line-label">模式配置</span>
     </div>
   </div>
