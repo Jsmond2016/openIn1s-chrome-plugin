@@ -18,4 +18,10 @@
 
 - https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html
 - https://open.chrome.360.cn/extension_dev/content_scripts.html
-- https://github.com/facert/chrome-extension-guide 
+- https://github.com/facert/chrome-extension-guide
+- https://github.com/sxei/chrome-plugin-demo chrom 插件开发教程
+- https://www.v2fy.com/p/readme-chromeappheroes/ 插件英雄榜
+- https://github.com/GoogleChrome/chrome-extensions-samples chrome 插件案例
+- https://github.com/listen1/listen1_chrome_extension 听音乐的插件开源代码
+- https://github.com/darkreader/darkreader darkreader 开源代码
+- https://github.com/orbitbot/chrome-extensions-examples 插件案例集合
