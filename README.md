@@ -14,6 +14,15 @@
 说明：只有在进入 github 或者 github1s 网站时才显示
 
 
+## 学习参考
+
+- https://github.com/listen1/listen1_chrome_extension 听音乐的插件开源代码 
+
+通过 [github issue](https://github.com/listen1/listen1_chrome_extension/issues/564) 了解到，作者下一版本将使用 vue3 + ts 进行重构，可以通过这个项目学习了解这些方面的东西；
+
+- [listen1-v3](https://github.com/listen1/listen1_chrome_extension/tree/next)
+
+
 ## 相关资料：
 
 - https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html
